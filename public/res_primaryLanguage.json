@@ -1,7 +1,7 @@
 {
     "basic_info": {
       "description_header": "Hi",
-      "description": "👋 I'm Davina Griss. Fictional person for preview purposes :) I'm working with newest front-end frameworks like Angular, React and Vue. What you are seeing now is portfolio template from Dorota1997. If you like this portfolio template, make sure to ⭐ the repository to make it more recognizable for other users. Thank you 💜",
+      "description": "",
       "section_name": {
         "about": "About me",
         "projects": "Projects",
@@ -81,37 +81,45 @@
     ],
     "experience": [
       {
-        "company": "DefOpenSource",
-        "title": "Front-End Developer",
-        "years": "10.2019 - present",
+        "company": "PRGX",
+        "title": "Data Analyst",
+        "years": "04.2023 - 07.2023",
         "mainTech": [
-          "Angular 8/9/10"
+          "SQL"
         ],
         "technologies": [
-          "REST API",
-          "RxJS",
-          "JavaScript",
-          "Bootstrap",
-          "MDBootstrap",
-          "EF Core",
-          ".NET Core",
-          "SignalR",
-          "Angular Material"
+          "Python",
+          "Talend Studio",
+          "Microsoft SQL Server"
         ]
       },
       {
-        "company": "Serros Solutions",
-        "title": "Intern",
-        "years": "01.2018 - 09.2019",
+        "company": "Ophthalmological Solutions MARFA",
+        "title": "Software Engineer",
+        "years": "08.2020 - 06.2022",
         "mainTech": [
-          "Angular 7/8"
+          "Django"
         ],
         "technologies": [
-          "RxJS",
+          "Python",
           "Django",
-          "PHP",
+          "Bootstrap",
           "JavaScript",
-          "DHTMLX Gantt"
+          "Java"
+        ]
+      },
+      {
+        "company": "Freelance",
+        "title": "Financial Algorithms Developer",
+        "years": "2020 - 2023",
+        "mainTech": [
+          "MQL5"
+        ],
+        "technologies": [
+          "Python",
+          "R",
+          "MQL5",
+          "Java"
         ]
       }
     ]
