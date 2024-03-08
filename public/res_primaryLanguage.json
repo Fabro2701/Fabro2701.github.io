@@ -9,6 +9,7 @@
         "experience": "Experience"
       }
     },
+    "titles": ["Data Analyst", "Data Engineer",  "Machine Learning Engineer" ],
     "projects": [
       {
         "title": "Animal Shelter",

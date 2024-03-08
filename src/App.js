@@ -82,7 +82,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Header sharedData={this.state.sharedData.basic_info} />
+
         <div className="col-md-12 mx-auto text-center language">
           <div
             onClick={() =>
@@ -117,6 +117,10 @@ class App extends Component {
             ></span>
           </div>
         </div>
+
+        <Header sharedData={this.state.sharedData.basic_info}
+                resumeTitles={this.state.resumeData.titles}
+        />
         <About
           resumeBasicInfo={this.state.resumeData.basic_info}
           sharedBasicInfo={this.state.sharedData.basic_info}
