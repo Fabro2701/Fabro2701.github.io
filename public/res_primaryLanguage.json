@@ -14,7 +14,7 @@
       {
         "title": "Evo Simulation",
         "startDate": "2022 - 2023",
-        "description": "",
+        "description": "Bachelor's thesis where I developed a framework to simulate and visualize the behavior and evolution of artificial\norganisms in dynamic environments using Genetic Programming techniques.\n",
         "images": [
           "images/portfolio/evoSimulation/home.gif",
           "images/portfolio/evoSimulation/exps.gif",
@@ -33,8 +33,29 @@
             "name": "Java"
           }
         ]
-
-
+      },
+      {
+        "title": "Market System",
+        "startDate": "2023",
+        "description": "Backtesting system for trading strategies.\nGUI, metrics and statistics are also implemented.\n",
+        "images": [
+          "images/portfolio/backtest/backtest.gif"
+        ],
+        "url": "https://github.com/Fabro2701/MarketSystem",
+        "technologies": [
+          {
+            "class": "devicon-python-plain",
+            "name": "Python"
+          },
+          {
+            "class": "devicon-java-plain",
+            "name": "Java"
+          },
+          {
+            "class": "devicon-tensorflow-original",
+            "name": "Tensorflow"
+          }
+        ]
       }
     ],
     "experience": [
