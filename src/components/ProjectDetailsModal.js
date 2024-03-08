@@ -28,7 +28,7 @@ class ProjectDetailsModal extends Component {
             </li>
           );
         });
-        const isImage = (file) => file.type.startsWith('image/');
+
         if (this.props.data.images) {
           var img = images.map((elem, i) => {
             return <div key={i} data-src={elem} />;
