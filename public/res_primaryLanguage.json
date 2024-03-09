@@ -1,7 +1,7 @@
 {
     "basic_info": {
       "description_header": "Hi",
-      "description": "",
+      "description": "I am a computer scientist with a passion for artificial intelligence. I am actively improving my skills through online resources, as well as developing my own projects. My research is centered around AI, and for my bachelor thesis, I studied and illustrated its potential in real-world scenarios. Later on, I expanded my knowledge by diving into deep learning. I have applied these techniques to my own projects, as well as those offered on the Kaggle platform.",
       "section_name": {
         "about": "About me",
         "projects": "Projects",
@@ -9,7 +9,7 @@
         "experience": "Experience"
       }
     },
-    "titles": ["Data Analyst", "Data Engineer",  "Machine Learning Engineer" ],
+    "titles": ["Data Analyst", "Data Engineer",  "AI Engineer" ],
     "projects": [
       {
         "title": "Evo Simulation",
