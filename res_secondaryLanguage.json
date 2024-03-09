@@ -1,0 +1,105 @@
+{
+    "basic_info": {
+      "description_header": "Hola",
+      "description": "Soy un informático apasionado por la inteligencia artificial. Estoy mejorando activamente mis habilidades a través de recursos en línea, además de desarrollar mis propios proyectos. Mi investigación se centra en la IA y, para mi tesis de licenciatura, estudié e ilustré su potencial en escenarios del mundo real. Posteriormente, amplié mis conocimientos sumergiéndome en el aprendizaje profundo. He aplicado estas técnicas a mis propios proyectos, así como a los que se ofrecen en la plataforma Kaggle.",
+      "section_name": {
+        "about": "Acerca de mí",
+        "projects": "Proyectos",
+        "skills": "Tecnologías",
+        "experience": "Experiencia"
+      }
+    },
+    "titles": [ "Analista de Datos", "Ingeniero de Datos", "Ingeniero de IA" ],
+    "projects": [
+      {
+        "title": "Evo Simulation",
+        "startDate": "2022 - 2023",
+        "description": "Trabajo de fin de carrera donde desarrollé un framework para simular y visualizar el comportamiento y evolución de\norganismos artificiales en ambientes dinámicos utilizando técnicas de Programación Genética.",
+        "images": [
+          "images/portfolio/evoSimulation/home.gif",
+          "images/portfolio/evoSimulation/exps.gif",
+          "images/portfolio/evoSimulation/fsm.gif",
+          "images/portfolio/evoSimulation/blocks.gif",
+          "images/portfolio/evoSimulation/stats.gif"
+        ],
+        "url": "https://github.com/Fabro2701/EvoSimulation",
+        "technologies": [
+          {
+            "class": "devicon-python-plain",
+            "name": "Python"
+          },
+          {
+            "class": "devicon-java-plain",
+            "name": "Java"
+          }
+        ]
+      },
+      {
+        "title": "Market System",
+        "startDate": "2023",
+        "description": "Sistema de backtesting para estrategias de trading.\nGUI, métricas y paneles estadísticos automáticos.\n",
+        "images": [
+          "images/portfolio/backtest/backtest.gif"
+        ],
+        "url": "https://github.com/Fabro2701/MarketSystem",
+        "technologies": [
+          {
+            "class": "devicon-python-plain",
+            "name": "Python"
+          },
+          {
+            "class": "devicon-java-plain",
+            "name": "Java"
+          },
+          {
+            "class": "devicon-tensorflow-original",
+            "name": "Tensorflow"
+          }
+        ]
+      }
+    ],
+    "experience": [
+      {
+        "company": "PRGX",
+        "title": "Analista de Datos",
+        "years": "04.2023 - 07.2023",
+        "mainTech": [
+          "SQL"
+        ],
+        "technologies": [
+          "Python",
+          "Talend Studio",
+          "Microsoft SQL Server"
+        ]
+      },
+      {
+        "company": "Soluciones Oftalmológicas MARFA",
+        "title": "Ingeniero de Software",
+        "years": "08.2020 - 06.2022",
+        "mainTech": [
+          "Django"
+        ],
+        "technologies": [
+          "Python",
+          "Django",
+          "Bootstrap",
+          "JavaScript",
+          "Java"
+        ]
+      },
+      {
+        "company": "Freelance",
+        "title": "Desarrollador de Algoritmos Financieros",
+        "years": "2020 - 2023",
+        "mainTech": [
+          "MQL5"
+        ],
+        "technologies": [
+          "Python",
+          "R",
+          "MQL5",
+          "Java"
+        ]
+      }
+    ]
+  }
