@@ -56,6 +56,34 @@
             "name": "Tensorflow"
           }
         ]
+      },
+      {
+        "title": "Image Processing",
+        "startDate": "2024",
+        "description": "Image processing framework for scientific research",
+        "images": [
+          "images/portfolio/imgprocessing/jobs.png",
+          "images/portfolio/imgprocessing/canvas.png"
+        ],
+        "url": "https://github.com/Fabro2701/ImageProcessing",
+        "technologies": [
+          {
+            "class": "devicon-python-plain",
+            "name": "Python"
+          },
+          {
+            "class": "devicon-javascript-plain",
+            "name": "Javascript"
+          },
+          {
+            "class": "devicon-bootstrap-plain",
+            "name": "Bootstrap"
+          },
+          {
+            "class": "devicon-html5-plain",
+            "name": "Html5"
+          }
+        ]
       }
     ],
     "experience": [
