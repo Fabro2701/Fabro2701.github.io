@@ -189,7 +189,241 @@ a {
   display: block;
   width: 100%;
   height: auto;
-  max-height: 42vh;
+  max-height: 34vh;
+}
+
+/* --- Trading panel (step 3) --- */
+.panel {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.panel__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.panel__actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.panel__btn {
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 0.4rem 1.1rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--bg);
+  cursor: pointer;
+  transition: filter 0.15s ease, transform 0.15s ease;
+}
+
+.panel__btn:hover {
+  filter: brightness(1.1);
+}
+
+.panel__btn:active {
+  transform: translateY(1px);
+}
+
+.panel__btn--buy {
+  background: var(--up);
+}
+
+.panel__btn--sell {
+  background: var(--down);
+}
+
+.panel__lot {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--muted);
+}
+
+.panel__label {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+}
+
+.panel__lot-btn {
+  width: 1.6rem;
+  height: 1.6rem;
+  border: 1px solid var(--grid);
+  border-radius: 5px;
+  background: transparent;
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.panel__lot-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.panel__lot-value {
+  min-width: 2ch;
+  text-align: center;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.panel__hint {
+  color: var(--muted);
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+}
+
+.panel__position {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+  color: var(--muted);
+}
+
+.panel__side {
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.panel__side[data-side="LONG"] {
+  color: var(--up);
+}
+
+.panel__side[data-side="SHORT"] {
+  color: var(--down);
+}
+
+.panel__entry {
+  color: var(--ink);
+}
+
+.panel__pnl[data-pos="pos"] {
+  color: var(--up);
+}
+
+.panel__pnl[data-pos="neg"] {
+  color: var(--down);
+}
+
+.panel__close {
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  padding: 0.4rem 1rem;
+  background: transparent;
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.panel__close:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* --- PnL chart (step 3) --- */
+.pnl {
+  margin-top: 0.75rem;
+  width: 100%;
+}
+
+.pnl__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.35rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+
+.pnl__total {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.pnl__total[data-pos="pos"] {
+  color: var(--up);
+}
+
+.pnl__total[data-pos="neg"] {
+  color: var(--down);
+}
+
+.pnl__frame {
+  border: 1px solid var(--grid);
+  border-radius: 8px;
+  padding: 0.25rem;
+  background: rgba(11, 14, 18, 0.72);
+  max-height: 15vh;
+  overflow: hidden;
+}
+
+.pnl__frame--empty {
+  padding: 0.75rem 1rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.pnl__svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 15vh;
+}
+
+/* --- Log console (step 3) --- */
+.log {
+  margin-top: 0.75rem;
+  width: 100%;
+}
+
+.log__header {
+  margin-bottom: 0.35rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+
+.log__body {
+  height: 9vh;
+  min-height: 60px;
+  overflow-y: auto;
+  border: 1px solid var(--grid);
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  background: rgba(11, 14, 18, 0.72);
+  font-size: 0.75rem;
+  line-height: 1.7;
+  color: var(--ink);
+  scrollbar-width: thin;
+  scrollbar-color: var(--grid) transparent;
+}
+
+.log__entry {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.log__entry--muted {
+  color: var(--muted);
+}
+
+.log__step {
+  color: var(--accent);
 }
 
 :focus-visible {
@@ -200,5 +434,9 @@ a {
 @media (prefers-reduced-motion: reduce) {
   .section .cue svg {
     animation: none;
+  }
+
+  .log__body {
+    scroll-behavior: auto;
   }
 }

@@ -2,6 +2,10 @@
 
 import { useEffect, useMemo, useState } from "react";
 import candles from "@/data/price-series.json";
+import useTradingEngine from "@/hooks/useTradingEngine";
+import TradingPanel from "@/components/TradingPanel";
+import PnLChart from "@/components/PnLChart";
+import LogConsole from "@/components/LogConsole";
 
 const TICK_MS = 500;
 const WINDOW = 60;
@@ -27,6 +31,18 @@ function formatPrice(value) {
 
 export default function TradingChart() {
   const [step, setStep] = useState(0);
+
+  const {
+    position,
+    lotSize,
+    setLotSize,
+    realized,
+    log,
+    unrealizedPnL,
+    tick,
+    openPosition,
+    closePosition,
+  } = useTradingEngine();
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -60,6 +76,10 @@ export default function TradingChart() {
     const price = maxP - ((maxP - minP) * g) / GRID_LINES;
     return { price, y: yOf(price) };
   });
+
+  useEffect(() => {
+    tick(step, current.close);
+  }, [step, current.close, tick]);
 
   return (
     <div className="chart">
@@ -175,8 +195,34 @@ export default function TradingChart() {
               {formatPrice(current.close)}
             </text>
           </g>
+
+          {position && (
+            <line
+              x1={PAD_L}
+              x2={VB_W - PAD_R}
+              y1={yOf(position.entryPrice)}
+              y2={yOf(position.entryPrice)}
+              stroke="var(--accent)"
+              strokeWidth="1"
+              strokeDasharray="2 4"
+              opacity="0.9"
+            />
+          )}
         </svg>
       </div>
+
+      <TradingPanel
+        position={position}
+        lotSize={lotSize}
+        setLotSize={setLotSize}
+        unrealizedPnL={unrealizedPnL}
+        onOpen={(side) => openPosition(step, side, current.close)}
+        onClose={() => closePosition(step, current.close)}
+      />
+
+      <PnLChart realized={realized} />
+
+      <LogConsole entries={log} />
     </div>
   );
 }
