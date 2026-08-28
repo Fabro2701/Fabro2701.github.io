@@ -1,3 +1,5 @@
+import TradingChart from "@/components/TradingChart";
+
 export default function Hero() {
   return (
     <>
@@ -5,9 +7,7 @@ export default function Hero() {
         Hi, I&apos;m Fabrizio
       </h1>
       <p className="section__tag">BS CS · MSc Quant Finance</p>
-      <p className="section__placeholder">
-        [ trading hero chart + playback engine — deferred to step 2 ]
-      </p>
+      <TradingChart />
     </>
   );
 }

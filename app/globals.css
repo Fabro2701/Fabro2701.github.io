@@ -140,6 +140,58 @@ a {
   opacity: 0.8;
 }
 
+/* --- Trading hero chart (step 2) --- */
+.chart {
+  margin-top: 1.5rem;
+  width: 100%;
+  max-width: 880px;
+}
+
+.chart__top {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.chart__ticker {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.chart__step {
+  color: var(--muted);
+}
+
+.chart__price {
+  margin-left: auto;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.chart__price[data-up="true"] {
+  color: var(--up);
+}
+
+.chart__price[data-up="false"] {
+  color: var(--down);
+}
+
+.chart__frame {
+  border: 1px solid var(--grid);
+  border-radius: 8px;
+  padding: 0.5rem;
+  background: rgba(11, 14, 18, 0.72);
+}
+
+.chart__svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 42vh;
+}
+
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
