@@ -17,17 +17,17 @@ Fresh portfolio site (repo currently **empty** — build it from the roadmap bel
 Single-page app: **three `100vh` scroll-snapped sections** (`scroll-snap-type: y mandatory`). This structure **avoids the SPA 404 problem** — no sub-routes.
 
 ### Visual tokens (shared system)
-`--bg #0b0e12`, `--grid #1c2129`, `--ink #eef0f1`, `--muted #71798a`, `--up #d9a441`, `--down #b8493f`, `--accent #6fd7c5`. Fonts: **Space Grotesk** (display) + **IBM Plex Mono** (numeric/data/tags/logs). Down-arrow scroll cue pinned to each section bottom (last section excluded).
+`--bg #0b0e12`, `--grid #1c2129`, `--ink #eef0f1`, `--muted #71798a`, `--up #22c55e` (green/up/long), `--down #ef4444` (red/down/short), `--accent #6fd7c5`, `--live #a78bfa` (unrealized PnL line). Fonts: **Space Grotesk** (display) + **IBM Plex Mono** (numeric/data/tags/logs). Down-arrow scroll cue pinned to each section bottom (last section excluded).
 
 ### Screen 1 — Trading Hero
 - Fixed **client-side** data `data/price-series.json`: seeded random walk of ~200–300 OHLC candles (deterministic, reproducible — no API).
 - Playback: `currentStep` pointer advances every 500ms, scrolls chart left, loops at end. `currentStep.close` = the single current price.
 - State machine `FLAT/LONG/SHORT`; **Buy/Sell disabled while a position is open**; only panel ✕ closes it.
 - `unrealizedPnL = (current - entry) * lotSize * (side==='LONG'?1:-1)`, recomputed each tick.
-- PnL chart: realized trades only, sign-colored bars + cumulative step-line overlay.
-- Log console: fixed-height, auto-scroll, timestamped by playback step (`[t=042]`), `aria-live="polite"`.
+- PnL chart: **two cumulative lines sampled across the playback-step axis, both always displayed**. **Realized** (solid `--accent`) updates only at trade close and holds level between closes; **unrealized** (dashed `--live`, unique color) is a **recorded per-step series** — a new net value is appended every playback tick (never recomputed/straightened), so it traces the open position continuously and meets the realized line exactly at close (both accumulate; net = realized + open). When flat the two lines are coincident (unrealized hidden under realized). Y/x axis ticks + labels, zero line.
+- Candle chart shows the open position: fat arrow at entry (up for LONG, down for SHORT) + thin connecting line to the live last price (updates each tick, colored long/short). On close an opposite-pointing arrow is added at the close point; realized trades render the full entry→line→exit arrow trio. All three elements colored long=`--up`(green)/short=`--down`(red).
+- Log console: fixed-height, auto-scroll, timestamped by playback step (`[t=042]`), `aria-live="polite"`, with buy/sell/close action keywords colored (`--up`/`--down`/`--accent`).
 - Lot stepper default 10, range 1–100.
-
 ### Screen 2 — Experience Timeline
 Vertical timeline, data-driven array (`{start,end,title,company,skills[]}`). Staggered fade/slide on scroll-in, respecting `prefers-reduced-motion`. **Content is placeholder — user supplies real data.**
 

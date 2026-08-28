@@ -8,22 +8,28 @@ export default function useTradingEngine() {
   const [position, setPosition] = useState(null);
   const [lotSize, setLotSize] = useState(DEFAULT_LOT);
   const [realized, setRealized] = useState([]);
+  const [pnlHistory, setPnlHistory] = useState([]);
   const [log, setLog] = useState([]);
   const lastStepRef = useRef(-1);
+  const realizedRef = useRef(0);
 
   const tick = useCallback(
     (step, currentPrice) => {
       if (step === lastStepRef.current) return;
       lastStepRef.current = step;
 
+      let openPnL = 0;
       if (position) {
-        const pnl =
+        openPnL =
           (currentPrice - position.entryPrice) *
           position.lotSize *
           (position.side === "LONG" ? 1 : -1);
 
-        setPosition((prev) => (prev ? { ...prev, unrealizedPnL: pnl } : null));
+        setPosition((prev) => (prev ? { ...prev, unrealizedPnL: openPnL } : null));
       }
+
+      const net = realizedRef.current + openPnL;
+      setPnlHistory((prev) => [...prev, { step, value: net }]);
     },
     [position]
   );
@@ -34,6 +40,7 @@ export default function useTradingEngine() {
 
       setPosition({
         side,
+        entryStep: step,
         entryPrice: currentPrice,
         lotSize,
         unrealizedPnL: 0,
@@ -43,7 +50,9 @@ export default function useTradingEngine() {
         ...prev,
         {
           step,
-          text: `${side === "LONG" ? "▲ BUY" : "▼ SELL"} ${lotSize} lots @ ${currentPrice.toFixed(2)}`,
+          tone: side === "LONG" ? "long" : "short",
+          action: side === "LONG" ? "▲ BUY" : "▼ SELL",
+          text: `${lotSize} lots @ ${currentPrice.toFixed(2)}`,
         },
       ]);
     },
@@ -63,6 +72,7 @@ export default function useTradingEngine() {
         ...prev,
         {
           step,
+          entryStep: position.entryStep,
           side: position.side,
           entryPrice: position.entryPrice,
           exitPrice: currentPrice,
@@ -71,11 +81,20 @@ export default function useTradingEngine() {
         },
       ]);
 
+      realizedRef.current += pnl;
+
+      setPnlHistory((prev) => [
+        ...prev,
+        { step, value: realizedRef.current },
+      ]);
+
       setLog((prev) => [
         ...prev,
         {
           step,
-          text: `CLOSE ${position.side} @ ${currentPrice.toFixed(2)} → ${pnl >= 0 ? "+" : ""}${pnl.toFixed(2)}`,
+          tone: "close",
+          action: "CLOSE",
+          text: `${position.side} @ ${currentPrice.toFixed(2)} → ${pnl >= 0 ? "+" : ""}${pnl.toFixed(2)}`,
         },
       ]);
 
@@ -93,6 +112,7 @@ export default function useTradingEngine() {
     lotSize,
     setLotSize,
     realized,
+    pnlHistory,
     log,
     unrealizedPnL,
     tick,

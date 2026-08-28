@@ -3,10 +3,10 @@ import TradingChart from "@/components/TradingChart";
 export default function Hero() {
   return (
     <>
-      <h1 style={{ fontSize: "clamp(2rem, 6vw, 4rem)" }}>
+      <h1 className="hero__title">
         Hi, I&apos;m Fabrizio
+        <span className="hero__tag mono">BS CS · MSc Quant Finance</span>
       </h1>
-      <p className="section__tag">BS CS · MSc Quant Finance</p>
       <TradingChart />
     </>
   );

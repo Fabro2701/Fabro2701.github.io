@@ -37,6 +37,7 @@ export default function TradingChart() {
     lotSize,
     setLotSize,
     realized,
+    pnlHistory,
     log,
     unrealizedPnL,
     tick,
@@ -76,6 +77,85 @@ export default function TradingChart() {
     const price = maxP - ((maxP - minP) * g) / GRID_LINES;
     return { price, y: yOf(price) };
   });
+
+  const inView = (index) => index >= start && index <= step;
+
+  const arrowPoints = (cx, cy, pointingUp) => {
+    const w = 12;
+    const h = 14;
+    const head = pointingUp ? cy - h / 2 : cy + h / 2;
+    const tail = cy + (pointingUp ? h / 2 : -h / 2);
+    return `${cx},${tail} ${cx - w},${tail} ${cx},${head} ${cx + w},${tail}`;
+  };
+
+  const colorOf = (trade) => (trade.side === "LONG" ? "var(--up)" : "var(--down)");
+
+  const tradeLine = (entryStep, entryPrice, exitX, exitY, color) => {
+    if (!inView(entryStep)) return null;
+    return (
+      <line
+        key={`tl-${entryStep}-${exitX}`}
+        x1={xOf(entryStep)}
+        y1={yOf(entryPrice)}
+        x2={exitX}
+        y2={exitY}
+        stroke={color}
+        strokeWidth="1.5"
+      />
+    );
+  };
+
+  const arrow = (key, cx, cy, pointingUp, color) => (
+    <polygon
+      key={key}
+      points={arrowPoints(cx, cy, pointingUp)}
+      fill={color}
+      opacity="0.95"
+    />
+  );
+
+  const positionsOverlay = (() => {
+    const parts = [];
+
+    realized.forEach((t, i) => {
+      const color = colorOf(t);
+      if (inView(t.entryStep)) {
+        parts.push(
+          arrow(`re-${i}`, xOf(t.entryStep), yOf(t.entryPrice), t.side === "LONG", color)
+        );
+      }
+      if (inView(t.step)) {
+        parts.push(
+          arrow(`rx-${i}`, xOf(t.step), yOf(t.exitPrice), t.side !== "LONG", color)
+        );
+      }
+      if (inView(t.entryStep)) {
+        parts.push(
+          tradeLine(t.entryStep, t.entryPrice, xOf(t.step), yOf(t.exitPrice), color)
+        );
+      }
+    });
+
+    if (position) {
+      const color = colorOf(position);
+      if (inView(position.entryStep)) {
+        parts.push(
+          arrow("pe", xOf(position.entryStep), yOf(position.entryPrice), position.side === "LONG", color)
+        );
+        parts.push(
+          tradeLine(
+            position.entryStep,
+            position.entryPrice,
+            xOf(step),
+            yOf(current.close),
+            color
+          )
+        );
+      }
+    }
+
+    return parts;
+  })();
 
   useEffect(() => {
     tick(step, current.close);
@@ -196,18 +276,7 @@ export default function TradingChart() {
             </text>
           </g>
 
-          {position && (
-            <line
-              x1={PAD_L}
-              x2={VB_W - PAD_R}
-              y1={yOf(position.entryPrice)}
-              y2={yOf(position.entryPrice)}
-              stroke="var(--accent)"
-              strokeWidth="1"
-              strokeDasharray="2 4"
-              opacity="0.9"
-            />
-          )}
+          {positionsOverlay}
         </svg>
       </div>
 
@@ -220,7 +289,11 @@ export default function TradingChart() {
         onClose={() => closePosition(step, current.close)}
       />
 
-      <PnLChart realized={realized} />
+      <PnLChart
+        realized={realized}
+        pnlHistory={pnlHistory}
+        step={step}
+      />
 
       <LogConsole entries={log} />
     </div>

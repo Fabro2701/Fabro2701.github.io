@@ -26,7 +26,7 @@ export default function LogConsole({ entries }) {
           entries.map((e, i) => (
             <div key={i} className="log__entry">
               <span className="log__step">[t={String(e.step).padStart(3, "0")}]</span>{" "}
-              {e.text}
+              <span className={`log__kw log__kw--${e.tone}`}>{e.action}</span> {e.text}
             </div>
           ))
         )}
