@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import projects from "@/data/projects.json";
 import ProjectOverlay from "@/components/ProjectOverlay";
 
-const BASE = "/portfolio";
+const BASE = "";
 
 function resolve(src) {
   return `${BASE}/${src.replace(/^\//, "")}`;
