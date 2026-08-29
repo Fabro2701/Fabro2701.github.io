@@ -1,0 +1,34 @@
+[
+  {
+    "start": "2024",
+    "end": "2026",
+    "title": "MSc Quantitative Finance",
+    "company": "Complutense University of Madrid",
+    "skills": ["Python", "R", "C++"],
+    "kind": "education"
+  },
+  {
+    "start": "04.2023",
+    "end": "07.2023",
+    "title": "Data Analyst",
+    "company": "PRGX",
+    "skills": ["Python", "SQL"],
+    "kind": "work"
+  },
+  {
+    "start": "08.2020",
+    "end": "06.2022",
+    "title": "Software Engineer",
+    "company": "Ophthalmological Solutions MARFA",
+    "skills": ["Python", "JavaScript", "Java"],
+    "kind": "work"
+  },
+  {
+    "start": "2019",
+    "end": "2023",
+    "title": "BSc Computer Science",
+    "company": "Complutense University of Madrid",
+    "skills": ["Python", "C++", "Java"],
+    "kind": "education"
+  }
+]
