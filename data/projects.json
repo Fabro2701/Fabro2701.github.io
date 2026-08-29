@@ -1,0 +1,77 @@
+[
+  {
+    "id": "evo-simulation",
+    "title": "Evo Simulation",
+    "startDate": "2022 - 2023",
+    "description": "Bachelor's thesis where I developed a framework to simulate and visualize the behavior and evolution of artificial organisms in dynamic environments using Genetic Programming techniques.",
+    "images": [
+      "images/projects/evo-simulation/home.gif",
+      "images/projects/evo-simulation/exps.gif",
+      "images/projects/evo-simulation/fsm.gif",
+      "images/projects/evo-simulation/blocks.gif",
+      "images/projects/evo-simulation/stats.gif"
+    ],
+    "url": "https://github.com/Fabro2701/EvoSimulation",
+    "technologies": ["Python", "Java"]
+  },
+  {
+    "id": "market-system",
+    "title": "Market System",
+    "startDate": "2023",
+    "description": "Backtesting system for trading strategies. GUI, metrics and statistics are also implemented.",
+    "images": [
+      "images/projects/market-system/backtest.gif"
+    ],
+    "url": "https://github.com/Fabro2701/MarketSystem",
+    "technologies": ["Python", "Java", "TensorFlow"]
+  },
+  {
+    "id": "image-processing",
+    "title": "Image Processing",
+    "startDate": "2024",
+    "description": "Image processing framework for scientific research.",
+    "images": [
+      "images/projects/image-processing/jobs.png",
+      "images/projects/image-processing/canvas.png"
+    ],
+    "url": "https://github.com/Fabro2701/ImageProcessing",
+    "technologies": ["Python", "JavaScript", "HTML5"]
+  },
+  {
+    "id": "ge-options",
+    "title": "GEOptions",
+    "startDate": "2025",
+    "description": "Application to fit nonlinear payoff functions using vanilla options through a Grammatical Evolution algorithm.",
+    "images": [
+      "images/projects/ge-options/options.gif"
+    ],
+    "url": "https://github.com/Fabro2701/GEOptions",
+    "technologies": ["Python"]
+  },
+  {
+    "id": "sharpe-ratio",
+    "title": "Statistical Properties of the Sharpe Ratio Estimator",
+    "startDate": "2026",
+    "description": "This work investigates the finite-sample and asymptotic properties of the Sharpe ratio estimator under progressively realistic return processes, ranging from IID Normal to AR(1)-GARCH(1,1). Combining the method of moments with the delta method, we derive closed-form expressions for the asymptotic variance under each specification. We assess the empirical coverage of asymptotic confidence intervals via Monte Carlo simulation, develop analytical corrections for finite-sample bias, and apply the framework to real financial returns. Complementary analyses cover parameter sensitivity, alternative metrics, and the joint asymptotic distribution of the Sharpe ratio with Value-at-Risk.",
+    "images": [
+      "images/projects/sharpe-ratio/sr_var_student_t(6).png",
+      "images/projects/sharpe-ratio/a_plus_b_line.png",
+      "images/projects/sharpe-ratio/mc_scatter.png",
+      "images/projects/sharpe-ratio/table.png"
+    ],
+    "url": "https://github.com/Fabro2701/sharpe_ratio_TFM",
+    "technologies": ["Python"]
+  },
+  {
+    "id": "statistical-arbitrage",
+    "title": "Statistical Arbitrage",
+    "startDate": "SOON",
+    "description": "",
+    "images": [
+      "images/projects/statistical-arbitrage/soon.svg"
+    ],
+    "url": "",
+    "technologies": [],
+    "comingSoon": true
+  }
+]

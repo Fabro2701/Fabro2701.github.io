@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "gen:data": "node scripts/generate-price-series.mjs",
+    "gen:media": "node scripts/generate-project-media.mjs",
     "start": "next start",
     "lint": "next lint"
   },

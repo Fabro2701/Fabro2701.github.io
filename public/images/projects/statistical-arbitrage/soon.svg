@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750">
+  <rect width="1200" height="750" fill="#0b0e12"/>
+  <g stroke="#1c2129" stroke-width="1" opacity="0.5">
+    <line x1="0" y1="50" x2="1200" y2="50"/>
+    <line x1="0" y1="110" x2="1200" y2="110"/>
+    <line x1="0" y1="170" x2="1200" y2="170"/>
+    <line x1="0" y1="230" x2="1200" y2="230"/>
+    <line x1="0" y1="290" x2="1200" y2="290"/>
+    <line x1="0" y1="350" x2="1200" y2="350"/>
+    <line x1="0" y1="410" x2="1200" y2="410"/>
+    <line x1="0" y1="470" x2="1200" y2="470"/>
+    <line x1="0" y1="530" x2="1200" y2="530"/>
+    <line x1="0" y1="590" x2="1200" y2="590"/>
+    <line x1="0" y1="650" x2="1200" y2="650"/>
+    <line x1="0" y1="710" x2="1200" y2="710"/>
+    <line x1="40" y1="0" x2="40" y2="750"/>
+    <line x1="100" y1="0" x2="100" y2="750"/>
+    <line x1="160" y1="0" x2="160" y2="750"/>
+    <line x1="220" y1="0" x2="220" y2="750"/>
+    <line x1="280" y1="0" x2="280" y2="750"/>
+    <line x1="340" y1="0" x2="340" y2="750"/>
+    <line x1="400" y1="0" x2="400" y2="750"/>
+    <line x1="460" y1="0" x2="460" y2="750"/>
+    <line x1="520" y1="0" x2="520" y2="750"/>
+    <line x1="580" y1="0" x2="580" y2="750"/>
+    <line x1="640" y1="0" x2="640" y2="750"/>
+    <line x1="700" y1="0" x2="700" y2="750"/>
+    <line x1="760" y1="0" x2="760" y2="750"/>
+    <line x1="820" y1="0" x2="820" y2="750"/>
+    <line x1="880" y1="0" x2="880" y2="750"/>
+    <line x1="940" y1="0" x2="940" y2="750"/>
+    <line x1="1000" y1="0" x2="1000" y2="750"/>
+    <line x1="1060" y1="0" x2="1060" y2="750"/>
+    <line x1="1120" y1="0" x2="1120" y2="750"/>
+  </g>
+  <text x="50%" y="46%" text-anchor="middle" font-family="monospace" font-size="40" font-weight="700" fill="#6fd7c5" letter-spacing="6">SOON</text><text x="50%" y="60%" text-anchor="middle" font-family="monospace" font-size="14" fill="#71798a">Statistical Arbitrage</text>
+</svg>
