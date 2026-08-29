@@ -77,19 +77,62 @@ a {
   margin: 0 auto;
 }
 
-/* --- Down-arrow scroll cue --- */
+/* --- Scroll cues (down + up) --- */
 .section .cue {
   position: absolute;
-  bottom: 1.5rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
   border: none;
   background: none;
-  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0;
   cursor: pointer;
   color: var(--muted);
-  transition: color 0.2s ease;
+}
+
+.section .cue--down {
+  bottom: 1.5rem;
+}
+
+.section .cue--up {
+  top: 1.25rem;
+}
+
+.section .cue__label {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  animation: cue-label-blink 1.4s ease-in-out infinite;
+}
+
+.section .cue svg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.85rem;
+  height: 2.85rem;
+  padding: 0.7rem;
+  box-sizing: border-box;
+  border: 1px solid var(--grid);
+  border-radius: 50%;
+  background: rgba(11, 14, 18, 0.55);
+  backdrop-filter: blur(2px);
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease,
+    transform 0.2s ease;
+  animation: cue-blink 1.4s ease-in-out infinite;
+}
+
+.section .cue--down svg {
+  animation-name: cue-blink, cue-bob-down;
+}
+
+.section .cue--up svg {
+  animation-name: cue-blink, cue-bob-up;
 }
 
 .section .cue:hover,
@@ -97,22 +140,60 @@ a {
   color: var(--accent);
 }
 
-.section .cue svg {
-  display: block;
-  animation: cue-bounce 1.6s ease-in-out infinite;
+.section .cue:hover .cue__label,
+.section .cue:focus-visible .cue__label {
+  color: var(--accent);
 }
 
-.section:last-child .cue {
-  display: none;
+.section .cue:hover svg,
+.section .cue:focus-visible svg {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(11, 14, 18, 0.85);
+  transform: scale(1.1);
 }
 
-@keyframes cue-bounce {
+.section .cue:active svg {
+  transform: scale(0.95);
+}
+
+@keyframes cue-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+@keyframes cue-label-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+
+@keyframes cue-bob-down {
   0%,
   100% {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(8px);
+    transform: translateY(7px);
+  }
+}
+
+@keyframes cue-bob-up {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
   }
 }
 
@@ -999,7 +1080,7 @@ button.project-card:focus-visible {
 
 @media (prefers-reduced-motion: reduce) {
   .section .cue svg {
-    animation: none;
+    animation: cue-blink 1.4s ease-in-out infinite;
   }
 
   .log__body {

@@ -6,7 +6,7 @@ import Projects from "@/components/Projects";
 export default function Home() {
   return (
     <>
-      <Section id="hero" last={false}>
+      <Section id="hero" first last={false}>
         <Hero />
       </Section>
       <Section id="experience" last={false}>
