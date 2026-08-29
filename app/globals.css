@@ -153,6 +153,99 @@ a {
   letter-spacing: 0;
 }
 
+/* --- Social corner links (T-1) --- */
+.hero__socials {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 40;
+  pointer-events: none;
+}
+
+.hero__social {
+  position: absolute;
+  top: 0;
+  width: 56px;
+  height: 56px;
+  pointer-events: auto;
+  color: var(--bg);
+  transition: filter 0.2s ease;
+}
+
+.hero__social--github {
+  left: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.hero__social--linkedin {
+  right: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.hero__social:hover,
+.hero__social:focus-visible {
+  filter: brightness(1.15);
+}
+
+.hero__social-triangle {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.hero__social--github .hero__social-triangle path {
+  fill: var(--accent);
+}
+
+.hero__social--linkedin .hero__social-triangle path {
+  fill: var(--live);
+}
+
+.hero__social-icon {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.hero__social--github .hero__social-icon {
+  margin: 9px 0 0 9px;
+}
+
+.hero__social--linkedin .hero__social-icon {
+  margin: 9px 9px 0 0;
+}
+
+.hero__social-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: var(--bg);
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .hero__social {
+    width: 44px;
+    height: 44px;
+  }
+
+  .hero__social--github .hero__social-icon {
+    margin: 7px 0 0 7px;
+  }
+
+  .hero__social--linkedin .hero__social-icon {
+    margin: 7px 7px 0 0;
+  }
+}
+
 .section__placeholder {
   color: var(--muted);
   font-family: var(--font-mono);
