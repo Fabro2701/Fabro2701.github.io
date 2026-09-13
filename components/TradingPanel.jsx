@@ -59,7 +59,7 @@ export default function TradingPanel({
           <span className="panel__hint mono">FLAT</span>
         </div>
       ) : (
-        <div className="panel__row">
+        <div className="panel__row panel__row--open">
           <div className="panel__position mono">
             <span className="panel__side" data-side={position.side}>
               {position.side}

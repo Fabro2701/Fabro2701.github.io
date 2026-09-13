@@ -406,6 +406,31 @@ a {
   flex-wrap: wrap;
 }
 
+.panel__row--open {
+  flex-wrap: nowrap;
+}
+
+.panel__row--open .panel__position {
+  flex: 1 1 auto;
+  min-width: 0;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+
+.panel__row--open .panel__position > span {
+  white-space: nowrap;
+}
+
+.panel__row--open .panel__close {
+  flex: 0 0 auto;
+}
+
+.panel__row--open .panel__pnl {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .panel__actions {
   display: flex;
   gap: 0.5rem;
