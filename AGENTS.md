@@ -97,5 +97,5 @@ Own CSS blocks in `globals.css`: `.chart*`, `.panel*`, `.pnl*`, `.log*`. Data so
 
 ## TODOs (planned — NOT implemented, do not build)
 
-- **T-2 Light theme**: switch the site from the current dark palette to a light one. Touch: `:root` tokens in `app/globals.css`, every hardcoded dark color there (`rgba(11, 14, 18, …)`, `#0e1218`, scrim/shadow values), and the palette constants (`BG/GRID/INK/MUTED/ACCENT`) in `scripts/generate-project-media.mjs` (then rerun `npm run gen:media`). Verify contrast of `--up`/`--down`/`--accent`/`--live` against light backgrounds before choosing values.
 - **T-3 Continuous-time trading**: currently the engine completes one full candle per 500ms tick (`TradingChart.jsx` `step` advancement + `useTradingEngine` `tick()` semantics treat each step as a finished OHLC candle). Change playback so each candle takes several timesteps to complete (intra-candle price progression). Touch: `components/TradingChart.jsx`, `hooks/useTradingEngine.js`, and likely the `data/price-series.json` format (needs per-timestep prices) — coordinate with `MAX_STEP` coupling in `PnLChart.jsx`.
+- T-4 FIX mobile version the button to close the position sometimes jumps to the next line(overflow) (i think it happens when the unrealized loss number increases its digits)

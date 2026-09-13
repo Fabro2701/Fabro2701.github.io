@@ -1,12 +1,18 @@
 :root {
-  --bg: #0b0e12;
-  --grid: #1c2129;
-  --ink: #eef0f1;
-  --muted: #71798a;
-  --up: #22c55e;
-  --down: #ef4444;
-  --accent: #6fd7c5;
-  --live: #a78bfa;
+  --bg: #f6f7f9;
+  --grid: #dce1e8;
+  --ink: #151a23;
+  --muted: #5e6875;
+  --up: #15803d;
+  --down: #dc2626;
+  --accent: #0f766e;
+  --live: #7c3aed;
+
+  --panel: rgba(255, 255, 255, 0.6);
+  --media: #e6e9ee;
+  --on-color: #101318;
+
+  color-scheme: light;
 
   --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-plex-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
@@ -65,7 +71,7 @@ a {
     linear-gradient(var(--grid) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid) 1px, transparent 1px);
   background-size: 48px 48px;
-  opacity: 0.5;
+  opacity: 0.4;
   pointer-events: none;
 }
 
@@ -120,7 +126,7 @@ a {
   box-sizing: border-box;
   border: 1px solid var(--grid);
   border-radius: 50%;
-  background: rgba(11, 14, 18, 0.55);
+  background: var(--panel);
   backdrop-filter: blur(2px);
   transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease,
     transform 0.2s ease;
@@ -149,7 +155,7 @@ a {
 .section .cue:focus-visible svg {
   color: var(--accent);
   border-color: var(--accent);
-  background: rgba(11, 14, 18, 0.85);
+  background: rgba(255, 255, 255, 0.85);
   transform: scale(1.1);
 }
 
@@ -248,7 +254,7 @@ a {
   width: 56px;
   height: 56px;
   pointer-events: auto;
-  color: var(--bg);
+  color: var(--on-color);
   transition: filter 0.2s ease;
 }
 
@@ -308,7 +314,7 @@ a {
 .hero__social-icon svg {
   width: 100%;
   height: 100%;
-  fill: var(--bg);
+  fill: var(--on-color);
   display: block;
 }
 
@@ -376,7 +382,7 @@ a {
   border: 1px solid var(--grid);
   border-radius: 8px;
   padding: 0.5rem;
-  background: rgba(11, 14, 18, 0.72);
+  background: var(--panel);
 }
 
 .chart__svg {
@@ -411,7 +417,7 @@ a {
   padding: 0.4rem 1.1rem;
   font-size: 0.85rem;
   font-weight: 700;
-  color: var(--bg);
+  color: var(--on-color);
   cursor: pointer;
   transition: filter 0.15s ease, transform 0.15s ease;
 }
@@ -524,7 +530,7 @@ a {
 
 .panel__close:hover {
   background: var(--accent);
-  color: var(--bg);
+  color: var(--on-color);
 }
 
 /* --- PnL chart (step 3) --- */
@@ -560,7 +566,7 @@ a {
   border: 1px solid var(--grid);
   border-radius: 8px;
   padding: 0.25rem;
-  background: rgba(11, 14, 18, 0.72);
+  background: var(--panel);
   max-height: 15vh;
   overflow: hidden;
 }
@@ -631,7 +637,7 @@ a {
   border: 1px solid var(--grid);
   border-radius: 8px;
   padding: 0.5rem 0.75rem;
-  background: rgba(11, 14, 18, 0.72);
+  background: var(--panel);
   font-size: 0.75rem;
   line-height: 1.7;
   color: var(--ink);
@@ -800,7 +806,7 @@ a {
   text-align: left;
   border: 1px solid var(--grid);
   border-radius: 10px;
-  background: rgba(11, 14, 18, 0.72);
+  background: var(--panel);
   padding: 0;
   overflow: hidden;
   cursor: pointer;
@@ -817,7 +823,7 @@ button.project-card:focus-visible {
   display: block;
   aspect-ratio: 16 / 10;
   overflow: hidden;
-  background: #0e1218;
+  background: var(--media);
   border-bottom: 1px solid var(--grid);
 }
 
@@ -870,7 +876,7 @@ button.project-card:focus-visible {
 .overlay__scrim {
   position: absolute;
   inset: 0;
-  background: rgba(4, 6, 9, 0.78);
+  background: rgba(15, 19, 26, 0.55);
   backdrop-filter: blur(3px);
   animation: overlay-fade 0.2s ease;
 }
@@ -885,7 +891,7 @@ button.project-card:focus-visible {
   background: var(--bg);
   border: 1px solid var(--grid);
   border-radius: 14px;
-  box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 24px 60px -12px rgba(23, 30, 41, 0.28);
   padding: 1.25rem;
   animation: overlay-rise 0.25s ease;
   scrollbar-width: thin;
@@ -911,7 +917,7 @@ button.project-card:focus-visible {
   height: 2rem;
   border: 1px solid var(--grid);
   border-radius: 50%;
-  background: rgba(11, 14, 18, 0.85);
+  background: rgba(255, 255, 255, 0.85);
   color: var(--muted);
   font-size: 1rem;
   line-height: 1;
@@ -930,7 +936,7 @@ button.project-card:focus-visible {
   border: 1px solid var(--grid);
   border-radius: 10px;
   overflow: hidden;
-  background: #0e1218;
+  background: var(--media);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -987,7 +993,7 @@ button.project-card:focus-visible {
   border: 1px solid var(--grid);
   border-radius: 5px;
   overflow: hidden;
-  background: #0e1218;
+  background: var(--media);
   cursor: pointer;
   opacity: 0.55;
   transition: opacity 0.15s ease, border-color 0.15s ease;

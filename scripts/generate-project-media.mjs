@@ -1,4 +1,4 @@
-import { mkdirSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { readFileSync } from "node:fs";
@@ -9,11 +9,11 @@ const PUBLIC = resolve(ROOT, "public");
 
 const projects = JSON.parse(readFileSync(PROJECTS, "utf8"));
 
-const BG = "#0b0e12";
-const GRID = "#1c2129";
-const INK = "#eef0f1";
-const MUTED = "#71798a";
-const ACCENT = "#6fd7c5";
+const BG = "#f6f7f9";
+const GRID = "#dce1e8";
+const INK = "#151a23";
+const MUTED = "#5e6875";
+const ACCENT = "#0f766e";
 
 function escapeXml(s) {
   return String(s)
@@ -40,7 +40,7 @@ for (const project of projects) {
     } else {
       body = `<text x="50%" y="42%" text-anchor="middle" font-family="monospace" font-size="15" fill="${MUTED}">${title}</text>`;
       body += `<text x="50%" y="52%" text-anchor="middle" font-family="monospace" font-size="12" fill="${MUTED}" opacity="0.7">${tag}</text>`;
-      body += `<text x="50%" y="66%" text-anchor="middle" font-family="monospace" font-size="40" fill="${GRID}">●</text>`;
+      body += `<text x="50%" y="66%" text-anchor="middle" font-family="monospace" font-size="40" fill="${INK}">●</text>`;
     }
 
     const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750">
@@ -54,6 +54,10 @@ for (const project of projects) {
 `;
 
     mkdirSync(dirname(out), { recursive: true });
+    if (existsSync(out)) {
+      console.log(`skip  -> ${out} (exists)`);
+      continue;
+    }
     writeFileSync(out, svg);
     count++;
     console.log(`wrote -> ${out}`);
