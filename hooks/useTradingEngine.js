@@ -2,7 +2,7 @@
 
 import { useCallback, useMemo, useRef, useState } from "react";
 
-const DEFAULT_LOT = 10;
+const DEFAULT_LOT = 5;
 
 export default function useTradingEngine() {
   const [position, setPosition] = useState(null);
